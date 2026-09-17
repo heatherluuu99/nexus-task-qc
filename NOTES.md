@@ -74,4 +74,4 @@ unchanged. Customer audits prove a defect exists; only random audits estimate it
 ## Setup, checks, limitations
 
 Open `app/index.html` (or `python3 -m http.server -d app`). `node verify.mjs` runs 88 checks
-against the same core the page loads. Time: [fill in]. AI disclosure: built with Claude Code; flows checked in the browser and by the tests.
+against the same core the page loads. AI disclosure: built with Claude Code; flows checked in the browser and by the tests.
