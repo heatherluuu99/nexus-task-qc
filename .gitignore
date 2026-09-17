@@ -1,0 +1,9 @@
+# local editor / agent tooling
+.claude/
+
+# macOS
+.DS_Store
+
+# node (nothing is installed; verify.mjs runs on plain node)
+node_modules/
+npm-debug.log*

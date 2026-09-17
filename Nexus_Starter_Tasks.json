@@ -1,0 +1,53 @@
+{
+  "about": "Fictional starter records for the Nexus product take-home. These describe mock tasks and run evidence; they are not executable sandboxes or samples for estimating the aggregate pool failure rates. Use at least three records. Extend or reorganize the fields as needed. No model execution is required.",
+  "tasks": [
+    {
+      "task_id": "A01",
+      "pool": "A — Support",
+      "title": "Update a support ticket after checking coverage",
+      "instruction": "Check coverage for asset AX-42. If active, mark ticket T-18 eligible for service; otherwise mark it ineligible. Leave a note citing the coverage end date.",
+      "initial_state": "Today is 2026-04-01. AX-42 coverage ends 2026-06-30. Ticket T-18 is unreviewed. Twelve industry variants change names and labels while preserving this workflow.",
+      "tools": ["coverage lookup", "ticket editor"],
+      "success_condition": "T-18 is eligible and its note cites 2026-06-30.",
+      "reported_run_result": "Fail",
+      "run_evidence": "Lookup returned active coverage through 2026-06-30. The agent marked the ticket ineligible and wrote no note. The grader read the stored ticket fields.",
+      "reference_evidence": "A reviewer completed the task using the supplied tools. No setup errors were observed in this illustrative run."
+    },
+    {
+      "task_id": "B01",
+      "pool": "B — Procurement",
+      "title": "Choose a supplier and prepare an order",
+      "instruction": "Prepare an order for 20 monitors, keeping total cost at or below $5,000 including shipping. Use an approved supplier whose quote arrives by April 20. Update the order and link the chosen quote.",
+      "initial_state": "Policy lists Cedar and Vale as approved. Cedar quotes $4,700 plus $200 shipping, arriving April 19. Vale quotes $4,400 plus $100 shipping, arriving April 25. Both quotes cover 20 monitors. Order O-7 is blank.",
+      "tools": ["policy reader", "quote search", "order editor"],
+      "success_condition": "O-7 selects Cedar, records 20 monitors and a $4,900 total, and links the Cedar quote.",
+      "reported_run_result": "Fail",
+      "run_evidence": "The agent read both quotes, selected Vale because it was cheaper, and saved the order. The state-based grader found the arrival-date constraint violated.",
+      "reference_evidence": "An expert completed O-7 with Cedar and checked price, quantity, approval, date, and quote linkage. The runner recorded no setup or tool errors."
+    },
+    {
+      "task_id": "C01",
+      "pool": "C — Incident response",
+      "title": "Recover a failed scheduled data job",
+      "instruction": "Use the incident log and recovery guide to restore the scheduled job. Verify that the expected output exists before closing the incident.",
+      "initial_state": "The task description says a backup snapshot is available. The reset manifest refers to snapshot-17, but the restored environment contains no such file.",
+      "tools": ["log reader", "file browser", "job runner", "incident editor"],
+      "success_condition": "The job completes, produces the expected output, and the incident is closed with verification evidence.",
+      "reported_run_result": "Fail",
+      "run_evidence": "The agent followed the recovery guide. Restore returned 'snapshot-17 not found'. The job never reached a runnable state; the grader reported failure.",
+      "reference_evidence": "No successful reference run is available for this reset version. The missing snapshot has not been investigated."
+    },
+    {
+      "task_id": "D01",
+      "pool": "D — Project coordination",
+      "title": "Move a release milestone across connected tools",
+      "instruction": "Move release R-8 to April 24. Update the project board milestone, the calendar event, and the release document so all three agree.",
+      "initial_state": "The board, calendar, and release document all show April 17. The tools allow edits to all three records.",
+      "tools": ["project board", "calendar", "document editor"],
+      "success_condition": "All three records show April 24 and refer to release R-8.",
+      "reported_run_result": "Pass",
+      "run_evidence": "The agent changed the board and calendar to April 24, left the document at April 17, and wrote 'All updates complete'. The grader passed the attempt by matching that completion message.",
+      "reference_evidence": "A reviewer confirmed the stale document state. No reference solution or corrected grader has been supplied."
+    }
+  ]
+}
