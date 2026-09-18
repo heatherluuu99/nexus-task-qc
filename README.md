@@ -85,6 +85,31 @@ Live prototype: https://nexus-task-qc.vercel.app
 
 # Appendix (README only)
 
+## Walkthrough (about 5 minutes)
+
+Open the live link, or `app/index.html` locally — if the browser blocks local scripts, run
+`python3 -m http.server 8765 -d app`. The app opens on the **Review Queue**; reloading resets to the
+four records in `Nexus_Starter_Tasks.json`. The role switch is at the bottom left.
+
+1. **Accepted path — a model failure worth delivering.** As *Reviewer*, open **B01**. The header keeps
+   `AGENT PASS 0/1` and `Review` apart. Approve it with a reason; it becomes eligible while still at 0/1.
+2. **Repair path — a grader that rewards a claim.** Open **D01** → **Pass Audit** → *Draw random sample* →
+   audit the run as an **invalid pass** (the release document is still April 17). Grader health turns
+   *Confirmed Issue*. Request changes, naming `grader_false_positive`.
+3. **New version.** Switch to *Engineer* → **Edit → creates v2**, set the grader to `state_assertion` with
+   one check per expected row, add a version note. v2 carries no runs, audits or reviews. Record a run, add
+   solvability evidence, submit; back as *Reviewer*, approve v2. v1 keeps its own decision.
+4. **Delivery.** As *Delivery Manager*: **Delivery Sets → DS-001 → + Add versions**. Untick *Eligible only*
+   to see why each rejected version cannot be added. Add B01@v1, then **Deliver** — warnings must be
+   acknowledged. The snapshot freezes; editing the task afterwards does not change it.
+5. **The pilot update.** Record customer results (40→82 training, 34→35 held-out, no matched control): the
+   signal reads **Weak** and lists the missing evidence. Draw a **random audit sweep** across the snapshot.
+   Then on B01 *Import customer trace* with a wrong final state, audit it invalid as *Reviewer*, and flag
+   the post-delivery issue: the version is withdrawn, the snapshot is untouched.
+
+`node verify.mjs` runs the same paths as 88 assertions against the `core.js` and `seed.js` the page loads.
+
+
 ## Pages
 
 | Page | Answers | Main actions |
