@@ -4,23 +4,6 @@
 `NOTES.md` holds the same text on its own, inside the 800-word cap; everything under
 *Appendix* on this page is extra README material, not part of it.
 
-## Try it — 3 steps
-
-1. Open the live link above, or `app/index.html` locally (if your browser blocks local scripts:
-   `python3 -m http.server 8765 -d app`). It opens on the **Review Queue**. Reloading resets to the
-   four records in `Nexus_Starter_Tasks.json`.
-2. **Accepted path and repair path.** As *Reviewer*: open **B01** and approve it — 0/1 agent pass, yet
-   eligible. Open **D01** → Pass Audit → draw the sample → audit the run as an invalid pass → request
-   changes. Switch to *Engineer* → **Edit → creates v2** (grader type `state_assertion`) → record a run,
-   add solvability evidence, submit. Back as *Reviewer*, approve v2.
-3. **Delivery and the pilot update.** As *Delivery Manager*: Delivery Sets → DS-001 → add B01@v1 →
-   deliver → record customer results (40→82 / 34→35). On B01, import a customer trace with the wrong
-   final state; as *Reviewer* audit it invalid; then flag the post-delivery issue.
-
-`node verify.mjs` runs 88 acceptance checks against the same `core.js` and `seed.js` the page loads.
-
----
-
 ## Task 1 — MVP Design
 
 **Bet: Pool B (Procurement) — ~100 verified tasks first, 500 staged.**
